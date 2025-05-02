@@ -75,6 +75,7 @@
         <div class="text-center py-4 fs-4 border-bottom">🧥 <strong>Shirtify</strong></div>
         <a href="/admin/main" class="active"><i class="ri-dashboard-line me-2"></i> Dashboard</a>
         <a href="/admin/products"><i class="ri-shirt-line me-2"></i> Products</a>
+        <a href="{{ route('admin.cat') }}"><i class="ri-apps-2-line"></i> Categories</a>
         <a href="/admin/orders"><i class="ri-shopping-bag-line me-2"></i> Orders</a>
         <a href="#"><i class="ri-user-line me-2"></i> Users</a>
         <form method="POST" action="{{ route("logout") }}">

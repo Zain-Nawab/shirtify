@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShopController;
@@ -29,6 +30,14 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get("/main", [AdminController::class, 'index'])->name('admin.main');
     Route::get("/products", [AdminController::class, 'products'])->name('admin.products');
     Route::get("/orders", [AdminController::class, 'orders'])->name('admin.orders');
+
+
+    //categories
+    Route::get("/categories", [CategoryController::class, 'index'])->name('admin.cat');
+    Route::get("/category/create", [CategoryController::class, 'create'])->name('cat.create');
+    Route::post("/category/store", [CategoryController::class, 'store'])->name('cat.store');
+    Route::get("/category/delete/{id}", [CategoryController::class, 'destroy'])->name('cat.delete');
+    
 
     // product crud routes
     Route::get("/product/create", [ProductController::class, 'create'])->name('admin.products.create');
