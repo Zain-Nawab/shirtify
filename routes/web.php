@@ -37,6 +37,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get("/category/create", [CategoryController::class, 'create'])->name('cat.create');
     Route::post("/category/store", [CategoryController::class, 'store'])->name('cat.store');
     Route::get("/category/delete/{id}", [CategoryController::class, 'destroy'])->name('cat.delete');
+
+    Route::post("/category/update", [CategoryController::class, 'update'])->name('cat.update');
     
 
     // product crud routes

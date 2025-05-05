@@ -8,6 +8,6 @@ class ShopController extends Controller
 {
     
     public function index() {
-        echo "working";
+        echo "working <a href='/admin/main' >admin</a>";
     }
 }

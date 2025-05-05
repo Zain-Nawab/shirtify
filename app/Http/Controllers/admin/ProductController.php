@@ -44,8 +44,11 @@ class ProductController extends Controller
 
     }
 
-    public function edit() {
+    public function edit(Request $request, $id) {
 
+        $cat = Category::findOrfail($id);
+
+        return view('admin.categories.edit', ['cat' => $cat]);
     }
 
     public function delete() {
