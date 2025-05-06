@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Shirt;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -51,7 +52,17 @@ class ProductController extends Controller
         return view('admin.categories.edit', ['cat' => $cat]);
     }
 
-    public function delete() {
-        
+    public function destroy(Request $request , $id) {
+        $product = Shirt::findOrfail($id);
+
+        // delete img 
+        if ($product->photo_path && Storage::disk('public')->exists($product->image_path)){
+            Storage::disk('public')->delete($product->image_path);
+        }
+        $product->delete();
+
+        return redirect()->route("admin.products.create")->with('delete', "Post deleted Successfully");
+
+
     }
 }

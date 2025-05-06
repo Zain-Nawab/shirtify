@@ -23,9 +23,8 @@ class AdminController extends Controller
 
     public function orders() 
     {
-
-       
-
         return view("admin.orders.index");
     }
+
+    
 }
