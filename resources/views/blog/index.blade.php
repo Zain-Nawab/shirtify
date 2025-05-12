@@ -3,7 +3,8 @@
 @section('main')
 
 
-@include('partials.whywithus')
+
+
 
 <!-- product section -->
 <section class="product_section layout_padding">
@@ -47,7 +48,7 @@
          @endforeach
        </div>
    
-       
+
        <div class="btn-box">
           <a href="">
           View All products
@@ -57,10 +58,8 @@
  </section>
  <!-- end product section -->
 
- @include('partials.newarival')
  
- @include('partials.subcribe')
-
-<h2>Blog index</h2>
+ 
+ 
 
 @endsection

@@ -25,10 +25,12 @@
                         Categories
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="nav-link dropdown-item" href="">Casual Wear</a></li>
-                        <li><a class="nav-link dropdown-item" href="">Classic Shirts</a></li>
+                        @foreach ($categories as $category)
+                        <li><a class="nav-link dropdown-item" href="">{{ $category->name }}</a></li>
+                        @endforeach
+                        {{-- <li><a class="nav-link dropdown-item" href="">Classic Shirts</a></li>
                         <li><a class="nav-link dropdown-item" href="">Premium Collection</a></li>
-                        <li><a class="nav-link dropdown-item" href="">Sports & Active</a></li>
+                        <li><a class="nav-link dropdown-item" href="">Sports & Active</a></li> --}}
                     </ul>
                 </li>
                 <!-- Cart Link -->

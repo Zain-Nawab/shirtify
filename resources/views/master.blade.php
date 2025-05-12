@@ -9,6 +9,8 @@
     
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href=" {{ asset('css/hero/bootstrap.css') }} " />
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <!-- font awesome style -->
     <link href=" {{ asset('css/hero/font-awesome.min.css') }} " rel="stylesheet" />
     <!-- Custom styles for this template -->
@@ -25,14 +27,31 @@
     @if (request()->routeIs('shop.index'))
       @include('partials.hero')
     @endif
+
+    @if (request()->routeIs('shop.index'))
+      @include('partials.whywithus')
+    @endif
+
+    @if (request()->routeIs('shop.index'))
+    @include('partials.newarival')
+    @endif
     
-   <div class="container">    
+    
+   <div class="container">
 
     @yield('main')
 
-    <a href="/admin/main">Admin</a>
-
    </div>
+
+   @if (request()->routeIs('shop.index'))
+    @include('partials.subcribe')
+    @endif
+
+    @if (request()->routeIs('shop.index'))
+    @include('partials.footer')
+    @endif
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
     <!-- jQery -->
     <script src=" {{ asset('js/jquery-3.4.1.min.js') }} "></script>
