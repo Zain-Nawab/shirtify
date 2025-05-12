@@ -21,4 +21,10 @@ class ShopController extends Controller
         }
         return view('blog.index' , ['products' => $products , 'category' =>$category_name]);
     }
+
+    public function detail($slug){
+        $prodcut = Shirt::with('category')->where('slug', $slug)->firstOrFail();
+
+        return view('blog.shirtdetail' ,['product' => $prodcut]);
+    }
 }

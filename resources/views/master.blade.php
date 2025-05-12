@@ -22,7 +22,7 @@
 
     @include('partials.navbar')
 
-    @if (route('shop.index'))
+    @if (request()->routeIs('shop.index'))
       @include('partials.hero')
     @endif
     

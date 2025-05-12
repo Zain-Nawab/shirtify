@@ -35,7 +35,7 @@ class ProductController extends Controller
         ]);
     
         // Handle file upload
-        if ($request->hasFile('image_path')) {
+        if ($request->hasFile('image')) {
             $validated['image_path'] = $request->file('image')->store('shirts', 'public');
         }
     

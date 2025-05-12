@@ -15,6 +15,7 @@
        </div>
        <div class="row">
  
+        @foreach ($products as $product)
         <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="box">
                <div class="option_container">
@@ -25,23 +26,28 @@
                      <a href="" class="option2">
                      Buy Now
                      </a>
+                     <a href="{{ route('shop.detail', $product->slug) }}" class="option3 btn-warning">
+                        Details
+                        </a>
                   </div>
                </div>
                <div class="img-box">
-                  <img src="images/p2.png" alt="">
+                  <img src="{{ asset('storage/' . $product->image_path) }}" alt="">
                </div>
                <div class="detail-box">
                   <h5>
-                     Men's Shirt
+                     {{ $product->name }}
                   </h5>
                   <h6>
-                     $80
+                    Price {{ $product->price }}
                   </h6>
                </div>
             </div>
          </div>
- 
+         @endforeach
        </div>
+   
+       
        <div class="btn-box">
           <a href="">
           View All products
@@ -50,6 +56,10 @@
     </div>
  </section>
  <!-- end product section -->
+
+ @include('partials.newarival')
+ 
+ @include('partials.subcribe')
 
 <h2>Blog index</h2>
 
