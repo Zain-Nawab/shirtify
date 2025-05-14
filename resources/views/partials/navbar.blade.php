@@ -35,7 +35,7 @@
                 </li>
                 <!-- Cart Link -->
                 <li class="nav-item">
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{{ route('cart.index') }}">
                         <i class="bi bi-cart"></i> Cart
                     </a>
                 </li>

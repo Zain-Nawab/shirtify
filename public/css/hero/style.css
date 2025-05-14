@@ -273,6 +273,7 @@ a:focus {
   visibility: visible;
   -webkit-transform: translateY(0);
           transform: translateY(0);
+          transition: all 0.6s;
 }
 .arrival_section {
     background-color: #d4ced0;
@@ -356,7 +357,8 @@ a:focus {
 
 .product_section .options .option3:hover {
   background-color: transparent;
-  color: #0ee115;
+  border: 1px solid green;
+  color: #009105;
 }
 
 .product_section .btn-box {

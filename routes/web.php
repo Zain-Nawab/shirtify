@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ShopController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,3 +48,17 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get("/product/edit", [ProductController::class, 'edit'])->name('admin.products.edit');
     Route::post("/product/destroy", [ProductController::class, 'delete'])->name('admin.products.destroy');
 });
+
+
+///cart 
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+
+Route::get('/cart/add/{id}', [CartController::class, 'add'])->name('cart.add');
+
+Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
+
+Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+
+
+
+

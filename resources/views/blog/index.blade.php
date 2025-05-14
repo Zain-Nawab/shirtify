@@ -4,8 +4,6 @@
 
 
 
-
-
 <!-- product section -->
 <section class="product_section layout_padding">
     <div class="container">
@@ -21,7 +19,7 @@
             <div class="box">
                <div class="option_container">
                   <div class="options">
-                     <a href="" class="option1">
+                     <a href="{{ route('cart.add', $product->id) }}" class="option1">
                      Add To Cart
                      </a>
                      <a href="" class="option2">
@@ -40,7 +38,7 @@
                      {{ $product->name }}
                   </h5>
                   <h6>
-                    Price {{ $product->price }}
+                    Price: {{ $product->price }} <sub class=" text-danger ">RS/-</sub>
                   </h6>
                </div>
             </div>
