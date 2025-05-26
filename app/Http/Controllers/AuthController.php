@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\VerifyEmail;
+use App\Models\email_verify;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -65,16 +68,21 @@ class AuthController extends Controller
         $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email', 'unique:users,email'],
-            'password' => ['required', 'confirmed', 'min:6']
+            'password' => ['required', 'confirmed', 'min:6'],
+            'email_veridied' => 0,
         ]);
 
 
         // create a new user
-        User::create([
+       $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password'))
         ]);
+
+        $token = email_verify::generateToekn($user->id);
+
+        Mail::to($user->email)->send(new VerifyEmail($user, $token->token));
 
         // Todo 
 
